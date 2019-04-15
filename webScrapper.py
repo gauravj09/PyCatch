@@ -16,12 +16,12 @@ pageSoup = soup(pageHTML, "html.parser")
 containers = pageSoup.findAll("div",{"class": "item-container"})
 
 for container in containers:
-	checkBrand			= container.find("div", "item-branding")
-	brand 				= container.find("div", "item-branding").a.img["title"]
+	checkBrand		= container.find("div", "item-branding")
+	brand 			= container.find("div", "item-branding").a.img["title"]
 	titleContainer  	= container.findAll("a", {"class":"item-title"})
 	productName 		= titleContainer[0].text
 	shippingContainer 	= container.findAll("li", {"class":"price-ship"})
-	shipping 			= shippingContainer[0].text.strip() #clean the /r and /n from input 
+	shipping 		= shippingContainer[0].text.strip() #clean the /r and /n from input 
 
 	print("brand: " + brand)
 	print("productName: " + productName)
